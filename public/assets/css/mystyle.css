@@ -1,0 +1,81 @@
+
+/* div for the pro quest */
+
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
+
+.prod-text{
+    font-family: 'Just Another Hand', cursive;
+}
+
+.timer{
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.timer-container{
+    display: flex;
+    justify-content: center;
+}
+.timer>span{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* div of about studio */
+.div3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff !important;
+}
+.about-details{
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    font-size: large;
+}
+.div3>div{
+    width: 100%;
+    text-align: center;
+}
+.div3>div>p{
+    color: black;
+    display: inline-block;
+}
+.div3 h1{
+    color: black;
+    text-align: center;
+}
+.div3 h5{
+    color: black;
+    text-align: center;
+}
+
+/* for the div with 3 pictures */
+
+.div4 > *{
+    color: black;
+    font-size: large;
+}
+
+.div4{
+    display: flex;
+    justify-content: center;
+    background-color: #f5f4f4 !important;
+}
+
+.div4>span{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    max-width: 400px;
+    text-align: center;
+}
+
+
