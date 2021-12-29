@@ -20,3 +20,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//admin dashboard routes
+
+Route::group([
+    'as'=>'admin.',
+    'prefix'=>'admin',
+    'middleware'=>'isAdmin'
+], function(){
+    Route::get('/dashboard', 'Admin\AdminController@index');
+});
+
+//user dashboard routes
+
+Route::group([
+    'as'=>'user.',
+    'middleware'=>'isUser'
+], function (){
+     Route::get('/dashboard', 'User\UserController@index');
+});

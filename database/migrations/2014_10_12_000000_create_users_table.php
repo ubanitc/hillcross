@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->integer('contact_number');
             $table->string('instagram_handle');
-            $table->boolean('is_admin')->default('0');
+            $table->boolean('isAdmin')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });
