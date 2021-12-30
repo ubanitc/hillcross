@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/css/mystyle.css') }}" type="text/css"/>
     <!-- endbuild -->
-</head>
 
+</head>
 
 <body class="layout-column bg-dark">
 <header id="header" class="page-header fixed">
