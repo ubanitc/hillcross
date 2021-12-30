@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('date_of_birth');
             $table->string('state_of_origin');
             $table->string('gender');
-            $table->integer('contact_number');
+            $table->bigInteger('contact_number');
             $table->string('instagram_handle');
             $table->boolean('isAdmin')->default('0');
             $table->rememberToken();
