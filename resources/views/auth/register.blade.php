@@ -75,7 +75,7 @@
                         {{--                            OR--}}
                         {{--                        </div>--}}
                         <div class="form-group">
-                            <input type="text" class="form-control" @error('name') is-invalid @enderror name="name" autofocus autocomplete="name" value="{{ old('name') }}" placeholder="Full Name" required>
+                            <input type="text" class="form-control" @error('name') is-invalid @enderror name="name"  autocomplete="name" value="{{ old('name') }}" placeholder="Full Name" required>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">

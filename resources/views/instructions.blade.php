@@ -1,14 +1,18 @@
 @extends('layouts.main')
 
 @section('content')
-
+    <style>
+        ul *{
+            font-size: larger
+        }
+    </style>
     <!-- ############ Content START-->
     <div id="content" class="flex ">
         <!-- ############ Main START-->
         <div class="sr">
             <div class="page-hero page-container" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
                 <div class="media bg-media bg-primary">
-                    <div class="media-content" style="background-image:url(assets/img/b20.jpg)"></div>
+                    <div class="media-content" style="background-image:url(assets/img/head.jpg)"></div>
                 </div>
                 <div class="p-5 pos-rlt text-center" style="padding-bottom: 0 !important;">
                     <h1 class="display-4 font-weight-bold text-white m-5">How to enroll in this Quest.</h1>
