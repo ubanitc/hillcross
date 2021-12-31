@@ -12,7 +12,7 @@
         <div class="sr">
             <div class="page-hero page-container" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
                 <div class="media bg-media bg-primary">
-                    <div class="media-content" style="background-image:url(assets/img/head.jpg)"></div>
+                    <div class="media-content" style="background-image:url({{ asset('assets/img/head.jpg') }})"></div>
                 </div>
                 <div class="p-5 pos-rlt text-center" style="padding-bottom: 0 !important;">
                     <h1 class="display-4 font-weight-bold text-white m-5">How to enroll in this Quest.</h1>
@@ -56,7 +56,7 @@
                             <h4 class="mb-5">Instructions</h4>
                             <ul class="text-instructions">
                                 <li>Click on the "Join Quest" button at the bottom of the page </li>
-                                <li>Fill in the Sign UP for Correctly</li>
+                                <li>Fill in the Sign-UP for Correctly</li>
                                 <li>Sign in to your Dashboard</li>
                                 <li>Upload Beats from 5 different Genres that were created by "YOU"</li>
                             </ul>

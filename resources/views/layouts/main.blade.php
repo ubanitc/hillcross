@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="text-center py-5">
-                    <span class="text-muted text-sm">&copy; HillCross. 2021. All Rights Reserved.</span>
+                    <span class="text-muted text-sm">&copy; HillCross. {{ \Carbon\Carbon::now()->year }}. All Rights Reserved.</span>
                 </div>
             </div>
         </div>

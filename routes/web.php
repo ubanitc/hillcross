@@ -25,7 +25,7 @@ Route::get('/instructions', function (){
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //admin dashboard routes
 
@@ -43,5 +43,8 @@ Route::group([
     'as'=>'user.',
     'middleware'=>['isUser','verified']
 ], function (){
-     Route::get('/dashboard', 'User\UserController@index');
+     Route::get('/dashboard', 'User\UserController@index')->name('home');
+
+     Route::get('/upload', 'User\UserController@upload')->name('upload');
+     Route::get('/profile', 'User\UserController@profile')->name('profile');
 });
