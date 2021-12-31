@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- style -->
     <!-- build:css assets/css/site.min.css -->
-    <link rel="stylesheet" href="libs/slick-carousel/slick/slick.css" type="text/css" />
-    <link rel="stylesheet" href="libs/slick-carousel/slick/slick-theme.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('libs/slick-carousel/slick/slick.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('libs/slick-carousel/slick/slick-theme.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
     <!-- endbuild -->
 </head>
 <body class="layout-row bg-dark">
@@ -56,7 +56,8 @@
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror                        <div class="my-3 text-right">
+                        @enderror
+                        <div class="my-3 text-right">
                             <a href="forgot-password.html" class="text-muted">Forgot password?</a>
                         </div>
                     </div>
@@ -77,24 +78,24 @@
 </div>
 <!-- build:js assets/js/site.min.js -->
 <!-- jQuery -->
-<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
-<script src="libs/popper.js/dist/umd/popper.min.js"></script>
-<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ asset('libs/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- ajax page -->
-<script src="libs/pjax/pjax.min.js"></script>
-<script src="assets/js/ajax.js"></script>
+<script src="{{ asset('libs/pjax/pjax.min.js') }}"></script>
+<script src="{{ asset('assets/js/ajax.js') }}"></script>
 <!-- lazyload plugin -->
-<script src="assets/js/lazyload.config.js"></script>
-<script src="assets/js/lazyload.js"></script>
-<script src="assets/js/plugin.js"></script>
+<script src="{{ asset('assets/js/lazyload.config.js') }}"></script>
+<script src="{{ asset('assets/js/lazyload.js') }}"></script>
+<script src="{{ asset('assets/js/plugin.js') }}"></script>
 <!-- scrollreveal -->
-<script src="libs/scrollreveal/dist/scrollreveal.min.js"></script>
-<script src="libs/slick-carousel/slick/slick.min.js"></script>
+<script src="{{ asset('libs/scrollreveal/dist/scrollreveal.min.js') }}"></script>
+<script src="{{ asset('libs/slick-carousel/slick/slick.min.js') }}"></script>
 <!-- feather icons -->
-<script src="libs/feather-icons/dist/feather.min.js"></script>
+<script src="{{ asset('libs/feather-icons/dist/feather.min.js') }}"></script>
 <!-- theme -->
-<script src="assets/js/theme.js"></script>
+<script src="{{ asset('assets/js/theme.js') }}"></script>
 <!-- endbuild -->
 </body>
 </html>
@@ -192,11 +193,11 @@
 {{--                                    {{ __('Login') }}--}}
 {{--                                </button>--}}
 
-{{--                                @if (Route::has('password.request'))--}}
-{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
-{{--                                        {{ __('Forgot Your Password?') }}--}}
-{{--                                    </a>--}}
-{{--                                @endif--}}
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
 {{--                            </div>--}}
 {{--                        </div>--}}
 {{--                    </form>--}}
