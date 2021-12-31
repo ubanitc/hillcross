@@ -58,7 +58,9 @@
                                     </span>
                         @enderror
                         <div class="my-3 text-right">
-                            <a href="forgot-password.html" class="text-muted">Forgot password?</a>
+                            @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}" class="text-muted">Forgot password?</a>
+                            @endif
                         </div>
                     </div>
                     <div class="checkbox mb-3">
@@ -193,11 +195,11 @@
 {{--                                    {{ __('Login') }}--}}
 {{--                                </button>--}}
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+{{--                                @if (Route::has('password.request'))--}}
+{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--                                        {{ __('Forgot Your Password?') }}--}}
+{{--                                    </a>--}}
+{{--                                @endif--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
 {{--                    </form>--}}

@@ -2,7 +2,7 @@
 
 @section('content')
     <style>
-        ul *{
+        .text-instructions *{
             font-size: larger
         }
     </style>
@@ -29,7 +29,7 @@
                     <div class="col-md-8">
                         <div class="py-5 sr-item">
                             <h4 class="mb-5">Benefits</h4>
-                            <ul>
+                            <ul class="text-instructions">
                                 <li>At the end of this quest two winners are going to emerge.</li>
                                 <li>There is a cash price of 	&#8358;1 Million for each winner</li>
                                 <li>Each winner will be offered a full-time production job with hill cross records on a monthly salary and other benefits.</li>
@@ -54,7 +54,7 @@
                     <div class="col-md-8">
                         <div class="py-5 sr-item">
                             <h4 class="mb-5">Instructions</h4>
-                            <ul>
+                            <ul class="text-instructions">
                                 <li>Click on the "Join Quest" button at the bottom of the page </li>
                                 <li>Fill in the Sign UP for Correctly</li>
                                 <li>Sign in to your Dashboard</li>
@@ -64,7 +64,7 @@
                              </div>
 
 
-                        <a class="btn btn-rounded btn-sm btn-primary no-ajax" href="html/signup.html">
+                        <a class="btn btn-rounded btn-sm btn-primary no-ajax" href="{{ route('register') }}">
                             Sign Up
                         </a>
                     </div>
