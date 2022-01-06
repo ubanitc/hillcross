@@ -31,6 +31,9 @@
                             </div>
                             <span class="flex"></span>
                         </div>
+                        @if(session()->has('over_upload'))
+                            <li style="list-style-type: none;" class="alert alert-danger">{{ session('over_upload') }} </li>
+                        @endif
                         @if(session()->has('upload_successful'))
                         <li style="list-style-type: none;" class="alert alert-success">{{ session('upload_successful') }} </li>
                         @endif
