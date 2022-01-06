@@ -48,6 +48,7 @@ Route::group([
      Route::get('/dashboard', 'User\UserController@index')->name('home');
 
      Route::get('/upload', 'User\UserController@upload')->name('upload');
+     Route::delete('/upload', 'UploadController@deleteBeat')->name('upload');
      Route::get('/profile', 'User\UserController@profile')->name('profile');
      Route::post('/uploads', 'UploadController@upload')->name('beat_upload');
 

@@ -69,4 +69,14 @@ class UploadController extends Controller
 
 
     }
+
+    public function deleteBeat(Request $request){
+
+        $beat = Beats::where('data_id',$request->del_id);
+        $beat->delete();
+
+        return redirect()->back();
+
+
+    }
 }

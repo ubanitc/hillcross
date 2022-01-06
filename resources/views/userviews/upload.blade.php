@@ -29,7 +29,12 @@
                             <div class="col-12" data-id="89"  data-source="http://bepop.test/assets/aleyi.mp3">
                                 <img src="" alt="">
                                 @foreach ($errors->all() as $error)
-                                    <li style="list-style-type: none;" class="alert alert-danger">{{ $error }}</li>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $error }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
                                 @endforeach
                                 <form action="{{ route('user.beat_upload') }}" method="post">
                                     @csrf

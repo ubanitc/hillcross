@@ -9,7 +9,7 @@
       if(!plyrist){
         plyrist = new Plyrist(
           {
-            playlist: '#plyrist', 
+            playlist: '#plyrist',
             player: 'audio'
           },
           [],
@@ -73,14 +73,12 @@
     $(document).on('click', '.btn-more', function (e) {
       e.preventDefault();
       var $dp = $(this).next('.dropdown-menu');
-      $dp.append('<a class="dropdown-item" href="#">Play</a>'+
-        '<a class="dropdown-item" href="#">Next to play</a>'+
-        '<a class="dropdown-item" href="#">Add to queue</a>'+
-        '<a class="dropdown-item" href="#">Add to playlist</a>'+
-        '<div class="dropdown-divider"></div>'+
-        '<a class="dropdown-item" href="#">Share</a>'
+      $dp.append('<p class="dropdown-item" >Are you sure?</p>'+
+        '<a class="dropdown-item yes-button" href="#>Yes</a>'+
+        '<p class="dropdown-item" >No</p>'
       );
     });
+
 
   }
 

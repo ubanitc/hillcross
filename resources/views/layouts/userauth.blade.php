@@ -8,12 +8,97 @@
     <!-- style -->
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <!-- build:css ../assets/css/site.min.css -->
-    <link rel="stylesheet" href="../libs/slick-carousel/slick/slick.css" type="text/css" />
-    <link rel="stylesheet" href="../libs/slick-carousel/slick/slick-theme.css" type="text/css" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../assets/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('libs/slick-carousel/slick/slick.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('libs/slick-carousel/slick/slick-theme.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/mystyle.css') }}" type="text/css" />
     <!-- endbuild -->
+    <style>
+        .modal-confirm {
+            color: #636363;
+            width: 400px;
+        }
+        .modal-confirm .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+        }
+        .modal-confirm .modal-header {
+            border-bottom: none;
+            position: relative;
+        }
+        .modal-confirm h4 {
+            text-align: center;
+            font-size: 26px;
+            margin: 30px 0 -10px;
+        }
+        .modal-confirm .close {
+            position: absolute;
+            top: -5px;
+            right: -2px;
+        }
+        .modal-confirm .modal-body {
+            color: #999;
+        }
+        .modal-confirm .modal-footer {
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 13px;
+            padding: 10px 15px 25px;
+        }
+        .modal-confirm .modal-footer a {
+            color: #999;
+        }
+        .modal-confirm .icon-box {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 50%;
+            z-index: 9;
+            text-align: center;
+            border: 3px solid #f15e5e;
+        }
+        .modal-confirm .icon-box i {
+            color: #f15e5e;
+            font-size: 46px;
+            display: inline-block;
+            margin-top: 13px;
+        }
+        .modal-confirm .btn, .modal-confirm .btn:active {
+            color: #fff;
+            border-radius: 4px;
+            background: #60c7c1;
+            text-decoration: none;
+            transition: all 0.4s;
+            line-height: normal;
+            min-width: 120px;
+            border: none;
+            min-height: 40px;
+            border-radius: 3px;
+            margin: 0 5px;
+        }
+        .modal-confirm .btn-secondary {
+            background: #c1c1c1;
+        }
+        .modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+            background: #a8a8a8;
+        }
+        .modal-confirm .btn-danger {
+            background: #f15e5e;
+        }
+        .modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+            background: #ee3535;
+        }
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+    </style>
 </head>
 <body class="layout-column bg-dark">
 <header id="header" class="page-header scroll-header fixed">
@@ -89,20 +174,28 @@
                     <span class="avatar w-24"><img src="../assets/img/a2.jpg" alt="..."></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-3 animate fadeIn">
-                    <a class="dropdown-item" href="../html/artist.detail.html">
+                    <a class="dropdown-item" href="{{ route('user.profile') }}">
                         <span>Profile</span>
                     </a>
-                    <a class="dropdown-item" href="../html/artist.detail.html#tracks">
-                        <span>Tracks</span>
-                    </a>
-                    <a class="dropdown-item" href="../html/artist.detail.html#albums">
-                        <span>Albums</span>
-                    </a>
-                    <a class="dropdown-item" href="../html/artist.detail.html#liked">
-                        <span>Likes</span>
-                    </a>
+{{--                    <a class="dropdown-item" href="../html/artist.detail.html#tracks">--}}
+{{--                        <span>Tracks</span>--}}
+{{--                    </a>--}}
+{{--                    <a class="dropdown-item" href="../html/artist.detail.html#albums">--}}
+{{--                        <span>Albums</span>--}}
+{{--                    </a>--}}
+{{--                    <a class="dropdown-item" href="../html/artist.detail.html#liked">--}}
+{{--                        <span>Likes</span>--}}
+{{--                    </a>--}}
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../html/signin.html">Sign out</a>
+                    <a class="dropdown-item"  href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </li>
             <!-- Navarbar toggle btn -->
@@ -238,24 +331,24 @@
 </footer>
 <!-- build:js ../assets/js/site.min.js -->
 <!-- jQuery -->
-<script src="../libs/jquery/dist/jquery.min.js"></script>
+<script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
-<script src="../libs/popper.js/dist/umd/popper.min.js"></script>
-<script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ asset('libs/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- ajax page -->
-<script src="../libs/pjax/pjax.min.js"></script>
-<script src="../assets/js/ajax.js"></script>
+<script src="{{ asset('libs/pjax/pjax.min.js') }}"></script>
+<script src="{{ asset('assets/js/ajax.js') }}"></script>
 <!-- lazyload plugin -->
-<script src="../assets/js/lazyload.config.js"></script>
-<script src="../assets/js/lazyload.js"></script>
-<script src="../assets/js/plugin.js"></script>
+<script src="{{ asset('assets/js/lazyload.config.js') }}"></script>
+<script src="{{ asset('assets/js/lazyload.js') }}"></script>
+<script src="{{ asset('assets/js/plugin.js') }}"></script>
 <!-- scrollreveal -->
-<script src="../libs/scrollreveal/dist/scrollreveal.min.js"></script>
-<script src="../libs/slick-carousel/slick/slick.min.js"></script>
+<script src="{{ asset('libs/scrollreveal/dist/scrollreveal.min.js') }}"></script>
+<script src="{{ asset('libs/slick-carousel/slick/slick.min.js') }}"></script>
 <!-- feather icons -->
-<script src="../libs/feather-icons/dist/feather.min.js"></script>
+<script src="{{ asset('libs/feather-icons/dist/feather.min.js') }}"></script>
 <!-- theme -->
-<script src="../assets/js/theme.js"></script>
+<script src="{{ asset('assets/js/theme.js') }}"></script>
 <!-- endbuild -->
 
 <script>
@@ -283,6 +376,80 @@
            }
        }
     });
+
+    $(function(){
+        var deleteBox = '<span class="deleteBox"><p>Are you sure you want to delete?</p><span class="cancel">Cancel</span><span class="confirm">Yes</span></span>';
+        $('.delete').each(function(){
+            $(this).append(deleteBox);
+        }).click(function(){
+            if(!$(this).hasClass('selected')){
+                $(this).addClass('selected');
+                var owner = $(this);
+
+                $(this).find('.cancel').unbind('click').bind('click',function(){
+                    owner.removeClass('selected');
+                    return false;
+                })
+
+                $(this).find('.confirm').unbind('click').bind('click',function(){
+                    $(this).parent().addClass('loading');
+                    var parent = $(this).parent();
+
+                    //ajax to delete
+
+                    setTimeout(function(){ //On success
+                        parent.addClass('deleted');
+                        setTimeout(function(){
+                            owner.fadeOut(600);
+
+                            //remove item deleted
+
+                            setTimeout(function(){
+                                owner.find('.deleted').removeClass('loading').removeClass('deleted');
+                                owner.removeClass('selected');
+                                owner.show();
+                            },1000)
+                        },1000)
+                    },1000)
+
+                    return false;
+                })
+            }
+            return false;
+        });
+
+
+        setTimeout(function(){
+            $('.delete').addClass('selected');
+            setTimeout(function(){
+                $('.deleteBox').addClass('loading');
+                setTimeout(function(){
+                    $('.deleteBox').addClass('deleted');
+                    setTimeout(function(){
+                        $('.delete').fadeOut(600,function(){
+
+                            $('.deleted').removeClass('loading').removeClass('deleted');
+                            $('.delete').removeClass('selected');
+                            setTimeout(function(){
+                                $('.delete').show();
+                            },500)
+
+
+                        });
+
+
+
+                    },500)
+
+                },1000)
+            },1000)
+        },500)
+
+
+    })
+
 </script>
+@stack('custom-script')
 </body>
 </html>
+

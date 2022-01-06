@@ -32,10 +32,20 @@
                             <span class="flex"></span>
                         </div>
                         @if(session()->has('over_upload'))
-                            <li style="list-style-type: none;" class="alert alert-danger">{{ session('over_upload') }} </li>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{ session('over_upload') }}                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
                         @endif
                         @if(session()->has('upload_successful'))
-                        <li style="list-style-type: none;" class="alert alert-success">{{ session('upload_successful') }} </li>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('upload_successful') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
                         @endif
                         <div class="row list-row list-index">
 
@@ -44,7 +54,7 @@
                             <div class="col-12" data-id="{{ $beat->data_id }}"  data-source="{{ $beat->path }}">
                                 <div class="list-item r">
                                     <div class="media ">
-                                        <a href="item.detail.html#{{ $beat->data_id }}" class="ajax media-content " style="background-image:url(../assets/img/c12.jpg)">
+                                        <a href="#{{ $beat->data_id }}" class="ajax media-content " style="background-image:url(../assets/img/c12.jpg)">
                                         </a>
                                         <div class="media-action media-action-overlay">
                                             <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class>
@@ -59,31 +69,47 @@
                                     </div>
                                     <div class="list-content text-center">
                                         <div class="list-body ">
-                                            <a href="item.detail.html#{{ $beat->data_id }}" class="list-title title ajax h-1x">
+                                            <a href="#{{ $beat->data_id }}" class="list-title title ajax h-1x">
                                                 {{ $beat->beat_name }}
                                             </a>
-                                            <a href="artist.detail.html#{{ $beat->data_id }}" class="list-subtitle d-block text-muted h-1x subtitle ajax ">
+                                            <a href="#{{ $beat->data_id }}" class="list-subtitle d-block text-muted h-1x subtitle ajax ">
                                                 {{ $beat->genre }}
                                             </a>
                                         </div>
                                     </div>
+
                                     <div class="list-action  show-row">
                                         <div class="d-flex align-items-center">
-                                            <div class="px-3 text-sm text-muted d-none d-md-block">04:33</div>
-                                            <button class="btn btn-icon no-bg no-shadow" data-toggle-class>
-                                                <i data-feather="heart" class="active-primary"></i>
-                                            </button>
-                                            <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">
-                                                <i data-feather="more-horizontal"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right"></div>
+                                            <div class="px-3 text-sm text-muted d-none d-md-block">{{ $beat->status }}</div>
+{{--                                            <button href="{{ route('user.upload') }}" class="btn btn-icon no-bg no-shadow" data-toggle-class>--}}
+                                            <a href="#my" data-id="{{ $beat->data_id }}" class="delete-button" data-toggle="modal" >
+                                                <i data-feather="trash" class="active-primary"></i>
+                                            </a>
+{{--                                            <div class="text-center">--}}
+{{--                                                <!-- Button HTML (to Trigger Modal) -->--}}
+{{--                                                <a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>--}}
+{{--                                            </div>--}}
+
+
+                                            {{--                                            </button>--}}
+{{--                                            <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">--}}
+{{--                                                <i data-feather="trash"></i>--}}
+{{--                                            </button>--}}
+{{--                                            <div class="dropdown-menu dropdown-menu-right"></div>--}}
+                                        </div>
+                                        <div class="dropdown-menu">
+                                            <div class="dropdown-item">yes</div>
+                                            <div class="dropdown-item">no</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             @empty
                                     <div class="col-12 text-center">
-                                        <h3>No Beats have been uploaded yet</h3>
+                                        <h4>No Beats have been uploaded yet</h4>
+                                        <a class="" onclick="(window.location = '{{ route("user.upload") }}' )">
+                                            <span class="text-decoration-underline" style="color: #b83cb8; text-decoration: underline">Upload your first beat</span>
+                                        </a>
                                     </div>
                                 @endforelse
 
@@ -145,5 +171,43 @@
         </div>
     </div>
     <!-- ############ Main END-->
+    <!-- Modal HTML -->
+    <div id="my" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box" style="display: flex; justify-content: center; align-items: center">
+                        <i data-feather="trash" style="width: 60%; height: 60%; color: #f15e5e;">&#xE5CD;</i>
+                    </div>
+                    <h4 class="modal-title w-100">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you really want to delete? This process cannot be undone.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <form method="post" action="{{ route('user.upload') }}">
+                        <input type="hidden" class="del_id" name="del_id" value="">
+                        <input type="hidden" class="del_id" name="central" value="this is the cenral value">
+                        @method('delete')
+                        @csrf
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@push('custom-script')
+    <script>
+        $(document).ready(function (){
+            $('.delete-button').click(function (e){
+                e.preventDefault();
 
+                $('.del_id').val(e.currentTarget.attributes[1].nodeValue);
+
+            });
+        });
+    </script>
+@endpush
 @endsection
