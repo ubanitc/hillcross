@@ -1,479 +1,288 @@
 <!DOCTYPE html>
-<html lang="zxx">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<html lang="en-US" dir="ltr">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>BitCrypto</title>
-
-    <link rel="icon" href="img/mini_logo.png" type="image/png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" />
-    <!-- themefy CSS -->
-    <link rel="stylesheet" href="{{ asset('vendors/themefy_icon/themify-icons.css')}}" />
-    <!-- select2 CSS -->
-    <link rel="stylesheet" href="{{ asset('vendors/niceselect/css/nice-select.css')}}" />
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{{ asset('vendors/owl_carousel/css/owl.carousel.css')}}" />
-    <!-- gijgo css -->
-    <link rel="stylesheet" href="{{ asset('vendors/gijgo/gijgo.min.css')}}" />
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{{ asset('vendors/font_awesome/css/all.min.css')}}" />
-    <link rel="stylesheet" href="{{ asset('vendors/tagsinput/tagsinput.css')}}" />
-
-    <!-- date picker -->
-    <link rel="stylesheet" href="{{ asset('vendors/datepicker/date-picker.css')}}" />
-
-    <link rel="stylesheet" href="{{ asset('vendors/vectormap-home/vectormap-2.0.2.css')}}" />
-
-    <!-- scrollabe  -->
-    <link rel="stylesheet" href="{{ asset('vendors/scroll/scrollable.css')}}" />
-    <!-- datatable CSS -->
-    <link rel="stylesheet" href="{{ asset('vendors/datatable/css/jquery.dataTables.min.css')}}" />
-    <link rel="stylesheet" href="{{ asset('vendors/datatable/css/responsive.dataTables.min.css')}}" />
-    <link rel="stylesheet" href="{{ asset('vendors/datatable/css/buttons.dataTables.min.css')}}" />
-    <!-- text editor css -->
-    <link rel="stylesheet" href="{{ asset('vendors/text_editor/summernote-bs4.css')}}" />
-    <!-- morris css -->
-    <link rel="stylesheet" href="{{ asset('vendors/morris/morris.css')}}">
-    <!-- metarial icon css -->
-    <link rel="stylesheet" href="{{ asset('vendors/material_icon/material-icons.css')}}" />
-
-    <!-- menu css  -->
-    <link rel="stylesheet" href="{{ asset('css/metisMenu.css')}}">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
-    <link rel="stylesheet" href="{{ asset('css/colors/default.css" id="colorSkinCSS')}}">
+    <title>HillCross | Dashboard</title>
+    <meta name="description" content="Responsive, Bootstrap, BS4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- style -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <!-- build:css ../assets/css/site.min.css -->
+    <link rel="stylesheet" href="../libs/slick-carousel/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" href="../libs/slick-carousel/slick/slick-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+    <!-- endbuild -->
 </head>
-<body class="crm_body_bg">
-
-
-
-<!-- main content part here -->
-
-<!-- sidebar  -->
-<nav class="sidebar dark_sidebar">
-    <div class="logo d-flex justify-content-between">
-        <a class="large_logo" href="index-2.html"><img src="img/logo_white.png" alt=""></a>
-        <a class="small_logo" href="index-2.html"><img src="img/mini_logo.png" alt=""></a>
-        <div class="sidebar_close_icon d-lg-none">
-            <i class="ti-close"></i>
-        </div>
-    </div>
-    <ul id="sidebar_menu">
-{{--        <li class="">--}}
-{{--            <a class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/1.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Dashboard </span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="index_2.html">Default</a></li>--}}
-{{--                <li><a href="index_3.html">Light Sidebar</a></li>--}}
-{{--                <li><a href="index-2.html">Dark Sidebar</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-        <li class="">
-            <a  href="{{ route('user.home') }}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/1.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Home</span>
-                </div>
-            </a>
-        </li>
-        <li class="">
-            <a  href="{{ route('user.upload') }}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/General.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Upload Beats</span>
-                </div>
-            </a>
-        </li>
-        <li class="">
-            <a  href="{{ route('user.profile') }}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/4.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Profile</span>
-                </div>
-            </a>
-        </li>
-        <li style="background: #FF0000;"  >
-
-            <a  href="crypto_stats.html" aria-expanded="false" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/logout.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Logout</span>
-                </div>
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
+<body class="layout-column bg-dark">
+<header id="header" class="page-header scroll-header fixed">
+    <div class="navbar navbar-expand-lg">
+        <!-- brand -->
+        <a href="index.html" class="navbar-brand text-white ">
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1" fill="#000"></circle>
+                <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1"></circle>
+                <g class="loading-spin" stroke="currentColor" stroke-width="1" style="transform-origin: 12px 12px">
+                    <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+                </g>
+            </svg>
+            <!-- <img src="../assets/img/logo.png" alt="..."> -->
+            <span class="hidden-folded d-inline l-s-n-1x ">HillCross</span>
+        </a>
+        <!-- / brand -->
+        <!-- Navbar collapse -->
+        <div class="collapse navbar-collapse order-2 order-lg-1" id="navbarCollapse">
+            <ul class="navbar-nav" data-nav>
+                <li class="nav-item">
+                    <a href="../html/discover.html" class="nav-link">
+                        <span class="nav-text">Discover</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/charts.html" class="nav-link">
+                        <span class="nav-text">Charts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/genres.html" class="nav-link">
+                        <span class="nav-text">Genres</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/artists.html" class="nav-link">
+                        <span class="nav-text">Artists</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/blog.html" class="nav-link">
+                        <span class="nav-text">Blog</span>
+                    </a>
+                </li>
+            </ul>
+            <form class="input-group m-2 my-lg-0 ">
+                        <span class="input-group-prepend">
+          <button type="button" class="btn no-shadow no-bg px-0"><i data-feather="search"></i></button>
+        </span>
+                <input type="text" class="form-control no-border no-shadow no-bg typeahead" placeholder="Search..." data-plugin="typeahead">
             </form>
-        </li>
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/6.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Transactions</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="Request.html">Request</a></li>--}}
-{{--                <li><a href="tan_cancel.html">Cancel</a></li>--}}
-{{--                <li><a href="Refound.html">Refound</a></li>--}}
-{{--                <li><a href="Payment_details.html">Payment details</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/7.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Tickers</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="ticker_dark.html">Ticker Dark</a></li>--}}
-{{--                <li><a href="Ticker_Light.html">Ticker Light</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/8.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Apps </span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="editor.html">Editor</a></li>--}}
-{{--                <li><a href="invoice.html">Invoice</a></li>--}}
-{{--                <li><a href="Builder.html">Builder</a></li>--}}
-{{--                <li><a href="calender.html">Calander</a></li>--}}
-{{--                <li><a href="Board.html">Board</a></li>--}}
-{{--                <li><a href="basic_card.html">Basic Card</a></li>--}}
-{{--                <li><a href="theme_card.html">Theme Card</a></li>--}}
-{{--                <li><a href="dargable_card.html">Draggable Card</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/Pages.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Pages</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="role_permissions.html">Role & Permissions</a></li>--}}
-{{--                <li><a href="faq.html">FAQ</a></li>--}}
-{{--                <li><a href="login.html">Login</a></li>--}}
-{{--                <li><a href="resister.html">Register</a></li>--}}
-{{--                <li><a href="error_400.html">Error 404</a></li>--}}
-{{--                <li><a href="error_500.html">Error 500</a></li>--}}
-{{--                <li><a href="forgot_pass.html">Forgot Password</a></li>--}}
-{{--                <li><a href="gallery.html">Gallery</a></li>--}}
-{{--                <li><a href="module_setting.html">Module Setting</a></li>--}}
-{{--                <li><a href="Products.html">Products</a></li>--}}
-{{--                <li><a href="Product_Details.html">Product Details</a></li>--}}
-{{--                <li><a href="Cart.html">Cart</a></li>--}}
-{{--                <li><a href="Checkout.html">Checkout</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a  class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/General.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>General</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="Minimized_Aside.html">Minimized Aside</a></li>--}}
-{{--                <li><a href="empty_page.html">Empty page</a></li>--}}
-{{--                <li><a href="fixed_footer.html">Fixed Footer</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/Mail_Box.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Mail Box </span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="mail_box.html">Mail Box</a></li>--}}
-{{--                <li><a href="compose.html">Compose</a></li>--}}
-{{--                <li><a href="important_mail.html">Important Mail</a></li>--}}
-{{--                <li><a href="mail_trash.html">Mail Trash</a></li>--}}
-{{--                <li><a href="chat.html">Chat</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/icon.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Icons</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="Fontawesome_Icon.html">Fontawesome Icon</a></li>--}}
-{{--                <li><a href="themefy_icon.html">themefy icon</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/18.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>UI Elements </span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="colors.html">colors</a></li>--}}
-{{--                <li><a href="Alerts.html">Alerts</a></li>--}}
-{{--                <li><a href="buttons.html">Buttons</a></li>--}}
-{{--                <li><a href="modal.html">modal</a></li>--}}
-{{--                <li><a href="dropdown.html">Droopdowns</a></li>--}}
-{{--                <li><a href="Badges.html">Badges</a></li>--}}
-{{--                <li><a href="Loading_Indicators.html">Loading Indicators</a></li>--}}
-{{--                <li><a href="color_plate.html">Color Plate</a></li>--}}
-{{--                <li><a href="typography.html">Typography</a></li>--}}
-{{--                <li><a href="datepicker.html">Date Picker</a></li>--}}
-{{--                <li><a href="wow_animation.html">Animate</a></li>--}}
-{{--                <li><a href="Scroll_Reveal.html">Scroll Reveal</a></li>--}}
-{{--                <li><a href="tilt.html">Tilt Animation</a></li>--}}
-{{--                <li><a href="navs.html">Navs</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a  class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/forms.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>forms</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="Basic_Elements.html">Basic Elements</a></li>--}}
-{{--                <li><a href="Groups.html">Groups</a></li>--}}
-{{--                <li><a href="Max_Length.html">Max Length</a></li>--}}
-{{--                <li><a href="Layouts.html">Layouts</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/14.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Widgets</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="accordion.html">Accordions</a></li>--}}
-{{--                <li><a href="Scrollable.html">Scrollable</a></li>--}}
-{{--                <li><a href="notification.html">Notifications</a></li>--}}
-{{--                <li><a href="carousel.html">Carousel</a></li>--}}
-{{--                <li><a href="Pagination.html">Pagination</a></li>--}}
-{{--                <li><a href="profilebox.html">Profile Box</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/17.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Table</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="data_table.html">Data Tables</a></li>--}}
-{{--                <li><a href="bootstrap_table.html">Bootstrap</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/16.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Charts</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="chartjs.html">ChartJS</a></li>--}}
-{{--                <li><a href="apex_chart.html">Apex Charts</a></li>--}}
-{{--                <li><a href="chart_sparkline.html">Chart sparkline</a></li>--}}
-{{--                <li><a href="am_chart.html">am-charts</a></li>--}}
-{{--                <li><a href="nvd3_charts.html">nvd3 charts.</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-{{--        <li class="">--}}
-{{--            <a   class="has-arrow" href="#" aria-expanded="false">--}}
-{{--                <div class="nav_icon_small">--}}
-{{--                    <img src="img/menu-icon/map.svg" alt="">--}}
-{{--                </div>--}}
-{{--                <div class="nav_title">--}}
-{{--                    <span>Maps</span>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <ul>--}}
-{{--                <li><a href="mapjs.html">Maps JS</a></li>--}}
-{{--                <li><a href="vector_map.html">Vector Maps</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
-    </ul>
-</nav>
-<!--/ sidebar  -->
+        </div>
+        <ul class="nav navbar-menu order-1 order-lg-2">
+            <li class="nav-item d-none d-sm-block">
+                <a class="nav-link px-2" data-toggle="fullscreen" data-plugin="fullscreen">
+                    <i data-feather="maximize"></i>
+                </a>
+            </li>
+            @if( Request::segment(1) == "dashboard")
+@if( $beats->isEmpty() || $beats->count() < 5)
+            <li class="nav-item">
+                <a class="nav-link px-2" onclick="(window.location = '{{ route("user.upload") }}' )">
+                    <i data-feather="upload" class="d-lg-none"></i><span class="btn btn-rounded btn-sm gd-primary text-white d-none d-lg-block">Upload</span>
+                </a>
+            </li>
 
-
-<section class="main_content dashboard_part large_header_bg">
-    <!-- menu  -->
-    <div class="container-fluid no-gutters">
-        <div class="row">
-            <div class="col-lg-12 p-0 ">
-                <div class="header_iner d-flex justify-content-between align-items-center">
-                    <div class="sidebar_icon d-lg-none">
-                        <i class="ti-menu"></i>
-                    </div>
-                    <div class="line_icon open_miniSide d-none d-lg-block">
-                        <img src="img/line_img.png" alt="">
-                    </div>
-                    <div class="header_right d-flex justify-content-between align-items-center">
-
-                        <div class="profile_info d-flex align-items-center">
-                            <div class="profile_thumb mr_20">
-                                <img src="img/transfer/4.png" alt="#">
+@endif
+        @endif
+            <!-- User dropdown menu -->
+            <li class="nav-item dropdown">
+                <a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-center py-0 px-lg-0 px-2 text-color">
+                    <span class="avatar w-24"><img src="../assets/img/a2.jpg" alt="..."></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right mt-3 animate fadeIn">
+                    <a class="dropdown-item" href="../html/artist.detail.html">
+                        <span>Profile</span>
+                    </a>
+                    <a class="dropdown-item" href="../html/artist.detail.html#tracks">
+                        <span>Tracks</span>
+                    </a>
+                    <a class="dropdown-item" href="../html/artist.detail.html#albums">
+                        <span>Albums</span>
+                    </a>
+                    <a class="dropdown-item" href="../html/artist.detail.html#liked">
+                        <span>Likes</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../html/signin.html">Sign out</a>
+                </div>
+            </li>
+            <!-- Navarbar toggle btn -->
+            <li class="nav-item d-lg-none">
+                <a href="#" class="nav-link px-2" data-toggle="collapse" data-toggle-class data-target="#navbarCollapse">
+                    <i data-feather="menu"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div id="main" class="layout-row flex">
+    <!-- ############ Content START-->
+    <div id="content" class="flex ">
+@yield('content')
+</div>
+<!-- ############ Content END-->
+</div>
+<footer id="footer" class="page-footer ">
+    <div class="padding bg-dark  b-t">
+        <div class="page-container">
+            <div class="py-5 text-inherit text-hover-primary">
+                <div class="row mb-5">
+                    <div class="col-6 col-md-4">
+                        <div class="mb-3">
+                            <!-- brand -->
+                            <a href="index.html" class="navbar-brand text-white ">
+                                <svg width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1" fill="#000"></circle>
+                                    <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1"></circle>
+                                    <g class="loading-spin" stroke="currentColor" stroke-width="1" style="transform-origin: 12px 12px">
+                                        <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+                                    </g>
+                                </svg>
+                                <!-- <img src="../assets/img/logo.png" alt="..."> -->
+                                <span class="hidden-folded d-inline l-s-n-1x ">HillCross</span>
+                            </a>
+                            <!-- / brand -->
+                        </div>
+                        <div class="px-1">
+                            <div class="dropdown mt-5 ml-md-5">
+                                <button class="btn w-sm btn-dark text-align-auto b-a sorting" data-toggle="dropdown">English</button>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">English</a>
+                                    <a href="#" class="dropdown-item">Français</a>
+                                    <a href="#" class="dropdown-item">日本语</a>
+                                    <a href="#" class="dropdown-item">中文</a>
+                                </div>
                             </div>
-                            <div class="author_name">
-                                <h4 class="f_s_15 f_w_500 mb-0">{{ucwords(Auth::user()->name)  }}</h4>
-                                <p class="f_s_12 f_w_400">Contestant</p>
-                            </div>
-{{--                            <div class="profile_info_iner">--}}
-{{--                                <div class="profile_author_name">--}}
-{{--                                    <p>Manager</p>--}}
-{{--                                    <h5>Jiue Anderson</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="profile_info_details">--}}
-{{--                                    <a href="#">My Profile </a>--}}
-{{--                                    <a href="#">Settings</a>--}}
-{{--                                    <a href="#">Log Out </a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ menu  -->
-    <div class="main_content_iner overly_inner ">
-        <div class="container-fluid p-0 ">
-            <!-- page title  -->
-            <div class="row">
-                <div class="col-12">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer part -->
-    <div class="footer_part">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer_iner text-center">
-                        <p>{{ \Carbon\Carbon::now()->year }} © Hill Cross Records - Designed by <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Trencytech</a></p>
+                    <div class="col-6 col-md-2">
+                        <h5 class="mb-3 text-muted">Pages</h5>
+                        <ul class="list-unstyled l-h-2x text-highlight">
+                            <li>
+                                <a href="../html/artists.html">Artists</a>
+                            </li>
+                            <li>
+                                <a href="../html/charts.html">Top Charts</a>
+                            </li>
+                            <li>
+                                <a href="../html/genres.html">Genres</a>
+                            </li>
+                            <li>
+                                <a href="../html/page.about.html">About Us</a>
+                            </li>
+                            <li>
+                                <a href="../html/blog.html">Blog</a>
+                            </li>
+                            <li>
+                                <a href="../html/signin.html">Signin</a>
+                            </li>
+                            <li>
+                                <a href="../html/signup.html">Signup</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h5 class="mb-3 text-muted">Your HillCross</h5>
+                        <ul class="list-unstyled l-h-2x text-highlight">
+                            <li>
+                                <a href="../html/artist.detail.html">Profile</a>
+                            </li>
+                            <li>
+                                <a href="../html/artist.detail.html#albums">Albums</a>
+                            </li>
+                            <li>
+                                <a href="../html/artist.detail.html#tracks">Tracks</a>
+                            </li>
+                            <li>
+                                <a href="../html/artist.detail.html#playlist">Playlist</a>
+                            </li>
+                            <li>
+                                <a href="../html/artist.detail.html#liked">Liked</a>
+                            </li>
+                            <li>
+                                <a href="../html/artist.detail.html#following">Following</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h5 class="mb-3 text-muted">Help</h5>
+                        <ul class="list-unstyled l-h-2x text-highlight">
+                            <li>
+                                <a href="../docs">Documentation</a>
+                            </li>
+                            <li>
+                                <a href="../docs/changelog.html">Changelog</a>
+                            </li>
+                            <li>
+                                <a href="../docs/changelog.html">Update</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2 text-md-right">
+                        <h5 class="mb-3 text-muted">Follow Us</h5>
+                        <a href="#">Fb</a>
+                        <a href="#">Tw</a>
+                        <a href="#">Ig</a>
                     </div>
                 </div>
+                <div class="text-center py-5">
+                    <span class="text-muted text-sm">&copy; Copyright. HillCross - Music Web Application, All rights reserved.</span>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<!-- main content part end -->
+    <div data-plugin="plyr" class="plyrist plyrist_audio plyr-list-popup player bg-overlay b-t fixed-bottom" id="plyrist">
+        <audio controls hidden></audio>
+        <div class="plyr-list bg-dark-overlay" style="display:none">
+        </div>
+    </div>
+</footer>
+<!-- build:js ../assets/js/site.min.js -->
+<!-- jQuery -->
+<script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- ajax page -->
+<script src="../libs/pjax/pjax.min.js"></script>
+<script src="../assets/js/ajax.js"></script>
+<!-- lazyload plugin -->
+<script src="../assets/js/lazyload.config.js"></script>
+<script src="../assets/js/lazyload.js"></script>
+<script src="../assets/js/plugin.js"></script>
+<!-- scrollreveal -->
+<script src="../libs/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="../libs/slick-carousel/slick/slick.min.js"></script>
+<!-- feather icons -->
+<script src="../libs/feather-icons/dist/feather.min.js"></script>
+<!-- theme -->
+<script src="../assets/js/theme.js"></script>
+<!-- endbuild -->
 
-<div id="back-top" style="display: none;">
-    <a title="Go to Top" href="#">
-        <i class="ti-angle-up"></i>
-    </a>
-</div>
-
-<!-- footer  -->
-<script src="{{ asset('js/jquery-3.4.1.min.js')}}"></script>
-<!-- popper js -->
-<script src="{{ asset('js/popper.min.js')}}"></script>
-<!-- bootstarp js -->
-<script src="{{ asset('js/bootstrap.min.js')}}"></script>
-<!-- sidebar menu  -->
-<script src="{{ asset('js/metisMenu.js')}}"></script>
-<!-- waypoints js -->
-<script src="{{ asset('vendors/count_up/jquery.waypoints.min.js')}}"></script>
-<!-- waypoints js -->
-<script src="{{ asset('vendors/chartlist/Chart.min.js')}}"></script>
-<!-- counterup js -->
-<script src="{{ asset('vendors/count_up/jquery.counterup.min.js')}}"></script>
-
-<!-- nice select -->
-<script src="{{ asset('vendors/niceselect/js/jquery.nice-select.min.js')}}"></script>
-<!-- owl carousel -->
-<script src="{{ asset('vendors/owl_carousel/js/owl.carousel.min.js')}}"></script>
-
-<!-- responsive table -->
-<script src="{{ asset('vendors/datatable/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/buttons.flash.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/jszip.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/pdfmake.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/vfs_fonts.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/buttons.html5.min.js')}}"></script>
-<script src="{{ asset('vendors/datatable/js/buttons.print.min.js')}}"></script>
-
-<!-- datepicker  -->
-<script src="{{ asset('vendors/datepicker/datepicker.js')}}"></script>
-<script src="{{ asset('vendors/datepicker/datepicker.en.js')}}"></script>
-<script src="{{ asset('vendors/datepicker/datepicker.custom.js')}}"></script>
-
-<script src="{{ asset('js/chart.min.js')}}"></script>
-<script src="{{ asset('vendors/chartjs/roundedBar.min.js')}}"></script>
-
-<!-- progressbar js -->
-<script src="{{ asset('vendors/progressbar/jquery.barfiller.js')}}"></script>
-<!-- tag input -->
-<script src="{{ asset('vendors/tagsinput/tagsinput.js')}}"></script>
-<!-- text editor js -->
+<script>
+    $(document).click(function(){
+        $("[data-plyr=next]").css('display','none');
+        $("[data-plyr=prev]").css('display','none');
+        $("[data-plyr=list]").css('display','none');
+        $("[data-plyr=shuffle]").css('display','none');
+        $("[data-plyr=like]").css('display','none');
 
 
-<script src="{{ asset('js/custom.js')}}"></script>
+
+    })
+</script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+    const inputElement = document.querySelector('input[id="beats_upload"]');
+    const pond = FilePond.create(inputElement);
+
+    FilePond.setOptions({
+       server:{
+           url: '{{ route('uploader') }}',
+           headers:{
+               'X-CSRF-TOKEN': '{{ csrf_token() }}'
+           }
+       }
+    });
+</script>
 </body>
-
 </html>

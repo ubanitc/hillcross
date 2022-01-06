@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilepondController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/instructions', function (){
 })->name('instructions');
 
 
+Route::post('/uploader', 'UploadController@store')->name('uploader');
 
 Auth::routes(['verify'=>true]);
 
@@ -47,4 +49,7 @@ Route::group([
 
      Route::get('/upload', 'User\UserController@upload')->name('upload');
      Route::get('/profile', 'User\UserController@profile')->name('profile');
+     Route::post('/uploads', 'UploadController@upload')->name('beat_upload');
+
+
 });
