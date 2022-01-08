@@ -159,16 +159,16 @@
                 </a>
             </li>
             @if( Request::segment(1) == "dashboard")
-@if( $beats->isEmpty() || $beats->count() < 5)
-            <li class="nav-item">
-                <a class="nav-link px-2" onclick="(window.location = '{{ route("user.upload") }}' )">
-                    <i data-feather="upload" class="d-lg-none"></i><span class="btn btn-rounded btn-sm gd-primary text-white d-none d-lg-block">Upload</span>
-                </a>
-            </li>
+                @if( $beats->isEmpty() || $beats->count() < 5)
+                    <li class="nav-item">
+                        <a class="nav-link px-2" onclick="(window.location = '{{ route("user.upload") }}' )">
+                            <i data-feather="upload" class="d-lg-none"></i><span class="btn btn-rounded btn-sm gd-primary text-white d-none d-lg-block">Upload</span>
+                        </a>
+                    </li>
 
-@endif
+            @endif
         @endif
-            <!-- User dropdown menu -->
+        <!-- User dropdown menu -->
             <li class="nav-item dropdown">
                 <a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-center py-0 px-lg-0 px-2 text-color">
                     <span class="avatar w-24"><img src="../assets/img/a2.jpg" alt="..."></span>
@@ -177,15 +177,15 @@
                     <a class="dropdown-item" onclick="(window.location = '{{ route("user.profile") }}' )">
                         <span>Profile</span>
                     </a>
-{{--                    <a class="dropdown-item" href="../html/artist.detail.html#tracks">--}}
-{{--                        <span>Tracks</span>--}}
-{{--                    </a>--}}
-{{--                    <a class="dropdown-item" href="../html/artist.detail.html#albums">--}}
-{{--                        <span>Albums</span>--}}
-{{--                    </a>--}}
-{{--                    <a class="dropdown-item" href="../html/artist.detail.html#liked">--}}
-{{--                        <span>Likes</span>--}}
-{{--                    </a>--}}
+                    {{--                    <a class="dropdown-item" href="../html/artist.detail.html#tracks">--}}
+                    {{--                        <span>Tracks</span>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a class="dropdown-item" href="../html/artist.detail.html#albums">--}}
+                    {{--                        <span>Albums</span>--}}
+                    {{--                    </a>--}}
+                    {{--                    <a class="dropdown-item" href="../html/artist.detail.html#liked">--}}
+                    {{--                        <span>Likes</span>--}}
+                    {{--                    </a>--}}
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item"  href="{{ route('logout') }}"
                        onclick="event.preventDefault();
@@ -210,9 +210,9 @@
 <div id="main" class="layout-row flex">
     <!-- ############ Content START-->
     <div id="content" class="flex ">
-@yield('content')
-</div>
-<!-- ############ Content END-->
+        @yield('content')
+    </div>
+    <!-- ############ Content END-->
 </div>
 <footer id="footer" class="page-footer ">
     <div class="padding bg-dark  b-t">
@@ -369,12 +369,12 @@
     const pond = FilePond.create(inputElement);
 
     FilePond.setOptions({
-       server:{
-           url: '{{ route('uploader') }}',
-           headers:{
-               'X-CSRF-TOKEN': '{{ csrf_token() }}'
-           }
-       }
+        server:{
+            url: '{{ route('uploader') }}',
+            headers:{
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        }
     });
 
     $(function(){

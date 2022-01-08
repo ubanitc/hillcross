@@ -9,7 +9,7 @@
                         <div class="media-content" style="background-image:url(../assets/img/c0.jpg)"></div>
                     </div>
                     <div class="pos-rlt text-white">
-                        <h3 class=" font-weight-bold mb-0 text-white title">Ubani Tochuwku</h3>
+                        <h3 class=" font-weight-bold mb-0 text-white title">{{ ucwords(Auth::user()->name) }}</h3>
 
                         <div class="mb-2">
 

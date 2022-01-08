@@ -9,7 +9,7 @@
                         <div class="media-content" style="background-image:url(../assets/img/c0.jpg)"></div>
                     </div>
                     <div class="pos-rlt text-white">
-                        <h1 class="display-3 font-weight-bold mb-0 text-white title">Ubani Tochuwku</h1>
+                        <h1 class="display-3 font-weight-bold mb-0 text-white title">{{ ucwords(Auth::user()->name) }}</h1>
                         <div class="py-4 toolbar align-items-center">
                             <div class="btn btn-raised btn-rounded btn-icon gd-primary text-white " ></div>
                             <span class="text-fade">{{ $beats->count() }} of 5</span>

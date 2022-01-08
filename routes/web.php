@@ -50,6 +50,7 @@ Route::group([
      Route::get('/upload', 'User\UserController@upload')->name('upload');
      Route::delete('/upload', 'UploadController@deleteBeat')->name('upload');
      Route::get('/profile', 'User\UserController@profile')->name('profile');
+     Route::patch('/profile', 'User\UserController@updateProfile')->name('profile');
      Route::post('/uploads', 'UploadController@upload')->name('beat_upload');
 
 

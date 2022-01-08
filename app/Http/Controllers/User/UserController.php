@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Beats;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,5 +29,20 @@ class UserController extends Controller
 
     public function profile(){
         return view('userviews.profile');
+    }
+
+    public function updateProfile(Request $request){
+        $request->validate([
+            'contact_number'=>'required',
+            'instagram_handle'=>'required'
+        ]);
+
+        $user = User::where('id',Auth::user()->id)->first();
+        $user->contact_number = $request->contact_number;
+        $user->instagram_handle = $request->instagram_handle;
+        $user->save();
+        session()->flash('success','Your profile has been updated successfully');
+        return redirect()->back();
+
     }
 }
