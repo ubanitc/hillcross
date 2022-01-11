@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/css/mystyle.css') }}" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <!-- endbuild -->
     <style>
         .modal-confirm {
@@ -120,37 +123,32 @@
         <div class="collapse navbar-collapse order-2 order-lg-1" id="navbarCollapse">
             <ul class="navbar-nav" data-nav>
                 <li class="nav-item">
-                    <a href="../html/discover.html" class="nav-link">
-                        <span class="nav-text">Discover</span>
+                    <a href="{{ route('admin.contestants') }}" class="nav-link">
+                        <span class="nav-text">Contestant Info</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../html/charts.html" class="nav-link">
-                        <span class="nav-text">Charts</span>
+                        <span class="nav-text">Un-Reviewed Beats</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../html/genres.html" class="nav-link">
-                        <span class="nav-text">Genres</span>
+                        <span class="nav-text">Reviewed Beats</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="../html/artists.html" class="nav-link">
-                        <span class="nav-text">Artists</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../html/blog.html" class="nav-link">
-                        <span class="nav-text">Blog</span>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="../html/artists.html" class="nav-link">--}}
+{{--                        <span class="nav-text">Artists</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="../html/blog.html" class="nav-link">--}}
+{{--                        <span class="nav-text">Blog</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
-            <form class="input-group m-2 my-lg-0 ">
-                        <span class="input-group-prepend">
-          <button type="button" class="btn no-shadow no-bg px-0"><i data-feather="search"></i></button>
-        </span>
-                <input type="text" class="form-control no-border no-shadow no-bg typeahead" placeholder="Search..." data-plugin="typeahead">
-            </form>
+
         </div>
         <ul class="nav navbar-menu order-1 order-lg-2">
             <li class="nav-item d-none d-sm-block">
@@ -174,9 +172,9 @@
                     <span class="avatar w-24"><img src="../assets/img/a2.jpg" alt="..."></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-3 animate fadeIn">
-                    <a class="dropdown-item" onclick="(window.location = '{{ route("user.profile") }}' )">
-                        <span>Profile</span>
-                    </a>
+{{--                    <a class="dropdown-item" onclick="(window.location = '{{ route("user.profile") }}' )">--}}
+{{--                        <span>Profile</span>--}}
+{{--                    </a>--}}
                     {{--                    <a class="dropdown-item" href="../html/artist.detail.html#tracks">--}}
                     {{--                        <span>Tracks</span>--}}
                     {{--                    </a>--}}
@@ -449,6 +447,8 @@
     })
 
 </script>
+
+
 @stack('custom-script')
 </body>
 </html>

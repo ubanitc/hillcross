@@ -36,7 +36,10 @@ Route::group([
     'prefix'=>'admin',
     'middleware'=>'isAdmin'
 ], function(){
-    Route::get('/dashboard', 'Admin\AdminController@index');
+    Route::get('/dashboard', 'Admin\AdminController@index')->name('dashboard');
+    Route::get('/contestants','Admin\AdminController@contestants')->name('contestants');
+    Route::get('/pending','Admin\AdminController@pending')->name('pending');
+
 });
 
 //user dashboard routes
