@@ -9,7 +9,7 @@
                     <div class="flex">
                         <div class="heading pt-5 pb-3 d-flex ">
                             <div>
-                                <h3 class="text-highlight sr-item">Un-Reviewed Beats</h3>
+                                <h3 class="text-highlight sr-item">Reviewed Beats</h3>
                             </div>
                             <span class="flex"></span>
                         </div>
@@ -33,79 +33,79 @@
                             @forelse($users as $user)
                                 @if(!$user->beats->isEmpty())
 
-                                 <a href="#" class="slide-toggle d-block w-100" style="color: whitesmoke;padding: 10px; border: 2px solid #a9a9a9;margin: 5px; border-radius: 10px; background: #696969" id="{{ $user->id }}"> {{ $user->name }} <span style="float: right; width: 20px; height: 20px; color: purple; background-color: white; display: grid; place-content: center">{{$user->beats->count()}}</span></a>
+                                    <a href="#" class="slide-toggle d-block w-100" style="color: whitesmoke;padding: 10px; border: 2px solid #a9a9a9;margin: 5px; border-radius: 10px; background: #696969" id="{{ $user->id }}"> {{ $user->name }} <span style="float: right; width: 20px; height: 20px; color: purple; background-color: white; display: grid; place-content: center">{{$user->beats->count()}}</span></a>
                                     <div class="col-12 slide-toggled-element" id="slide-{{ $user->id }}">
 
-                            @foreach($user->beats as $beats)
-                                        <div class="col-12 " data-id="{{ $beats->data_id }}"  data-source="../{{ $beats->path }}">
-                                    <div class="list-item r">
-                                        <div class="media ">
-                                            <a href="#{{ $beats->data_id }}" class="ajax media-content " style="background-image:url(../assets/img/c12.jpg)">
-                                            </a>
-                                            <div class="media-action media-action-overlay">
-                                                <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class>
-                                                    <i data-feather="heart" class="active-fill"></i>
-                                                </button>
-                                                <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
-                                                <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
-                                                    <i data-feather="more-horizontal"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right"></div>
+                                        @foreach($user->beats as $beats)
+                                            <div class="col-12 " data-id="{{ $beats->data_id }}"  data-source="../{{ $beats->path }}">
+                                                <div class="list-item r">
+                                                    <div class="media ">
+                                                        <a href="#{{ $beats->data_id }}" class="ajax media-content " style="background-image:url(../assets/img/c12.jpg)">
+                                                        </a>
+                                                        <div class="media-action media-action-overlay">
+                                                            <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class>
+                                                                <i data-feather="heart" class="active-fill"></i>
+                                                            </button>
+                                                            <button class="btn btn-raised btn-icon btn-rounded bg--white btn-play"></button>
+                                                            <button class="btn btn-icon no-bg no-shadow hide-row btn-more" data-toggle="dropdown">
+                                                                <i data-feather="more-horizontal"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu dropdown-menu-right"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-content text-center">
+                                                        <div class="list-body ">
+                                                            <a href="#{{ $beats->data_id }}" class="list-title title ajax h-1x">
+
+                                                                {{ $beats->beat_name }}
+                                                            </a>
+                                                            <a href="#{{ $beats->data_id }}" class="list-subtitle d-block text-muted h-1x subtitle ajax ">
+                                                                {{ $beats->genre }}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="list-action  show-row">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="px-3 text-sm text-muted d-none d-md-block">{{ $beats->status }}</div>
+                                                            {{--                                            <button href="{{ route('user.upload') }}" class="btn btn-icon no-bg no-shadow" data-toggle-class>--}}
+{{--                                                            <a href="#my" data-id="{{ $beats->data_id }}" class="delete-button" data-toggle="modal" >--}}
+{{--                                                                <i data-feather="check-square" class="active-primary"></i>--}}
+{{--                                                            </a>--}}
+                                                            <a style="margin-left: 20px" href="../{{ $beats->path }}" download="{{ $beats->name }}"  >
+                                                                <i data-feather="download" class="active-primary"></i>
+                                                            </a>
+                                                            {{--                                            <div class="text-center">--}}
+                                                            {{--                                                <!-- Button HTML (to Trigger Modal) -->--}}
+                                                            {{--                                                <a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>--}}
+                                                            {{--                                            </div>--}}
+
+
+                                                            {{--                                            </button>--}}
+                                                            {{--                                            <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">--}}
+                                                            {{--                                                <i data-feather="trash"></i>--}}
+                                                            {{--                                            </button>--}}
+                                                            {{--                                            <div class="dropdown-menu dropdown-menu-right"></div>--}}
+                                                        </div>
+                                                        <div class="dropdown-menu">
+                                                            <div class="dropdown-item">yes</div>
+                                                            <div class="dropdown-item">no</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="list-content text-center">
-                                            <div class="list-body ">
-                                                <a href="#{{ $beats->data_id }}" class="list-title title ajax h-1x">
 
-                                                    {{ $beats->beat_name }}
-                                                </a>
-                                                <a href="#{{ $beats->data_id }}" class="list-subtitle d-block text-muted h-1x subtitle ajax ">
-                                                    {{ $beats->genre }}
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="list-action  show-row">
-                                            <div class="d-flex align-items-center">
-                                                <div class="px-3 text-sm text-muted d-none d-md-block">{{ $beats->status }}</div>
-                                                {{--                                            <button href="{{ route('user.upload') }}" class="btn btn-icon no-bg no-shadow" data-toggle-class>--}}
-                                                <a href="#my" data-id="{{ $beats->data_id }}" class="delete-button" data-toggle="modal" >
-                                                    <i data-feather="check-square" class="active-primary"></i>
-                                                </a>
-                                                <a style="margin-left: 20px" href="../{{ $beats->path }}" download="{{ $beats->name }}"  >
-                                                    <i data-feather="download" class="active-primary"></i>
-                                                </a>
-                                                {{--                                            <div class="text-center">--}}
-                                                {{--                                                <!-- Button HTML (to Trigger Modal) -->--}}
-                                                {{--                                                <a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>--}}
-                                                {{--                                            </div>--}}
-
-
-                                                {{--                                            </button>--}}
-                                                {{--                                            <button class="btn btn-icon no-bg no-shadow btn-more" data-toggle="dropdown">--}}
-                                                {{--                                                <i data-feather="trash"></i>--}}
-                                                {{--                                            </button>--}}
-                                                {{--                                            <div class="dropdown-menu dropdown-menu-right"></div>--}}
-                                            </div>
-                                            <div class="dropdown-menu">
-                                                <div class="dropdown-item">yes</div>
-                                                <div class="dropdown-item">no</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                    @endforeach
+                                        @endforeach
                                     </div>
 
                                 @endif
                             @empty
-                                                                <div class="col-12 text-center">
-                                                                    <h4>There is no Un-Reviewed Beat</h4>
-                                                                    <a class="" onclick="(window.location = '{{ route("admin.reviewed.upload") }}' )">
-                                                                        <span class="text-decoration-underline" style="color: #b83cb8; text-decoration: underline">Check Out already reviewed beats.</span>
-                                                                    </a>
-                                                                </div>
+                                <div class="col-12 text-center">
+                                    <h4>There is no Reviewed Beat</h4>
+                                    <a class="" onclick="(window.location = '{{ route("admin.reviewed.upload") }}' )">
+                                        <span class="text-decoration-underline" style="color: #b83cb8; text-decoration: underline">Check Out already reviewed beats.</span>
+                                    </a>
+                                </div>
                             @endforelse
 
 

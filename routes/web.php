@@ -16,7 +16,7 @@ use App\Http\Controllers\FilepondController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('main');
 
 Route::get('/instructions', function (){
     return view('instructions');
@@ -39,6 +39,9 @@ Route::group([
     Route::get('/dashboard', 'Admin\AdminController@index')->name('dashboard');
     Route::get('/contestants','Admin\AdminController@contestants')->name('contestants');
     Route::get('/pending','Admin\AdminController@pending')->name('pending');
+    Route::get('/reviewed','Admin\AdminController@reviewed')->name('reviewed');
+    Route::post('/review','Admin\AdminController@review')->name('review');
+
 
 });
 

@@ -107,7 +107,7 @@
 <header id="header" class="page-header scroll-header fixed">
     <div class="navbar navbar-expand-lg">
         <!-- brand -->
-        <a href="index.html" class="navbar-brand text-white ">
+        <a onclick="(window.location = '{{ route("main") }}' )" class="navbar-brand text-white ">
             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1" fill="#000"></circle>
                 <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1"></circle>
@@ -123,17 +123,21 @@
         <div class="collapse navbar-collapse order-2 order-lg-1" id="navbarCollapse">
             <ul class="navbar-nav" data-nav>
                 <li class="nav-item">
-                    <a href="{{ route('admin.contestants') }}" class="nav-link">
+                    <a onclick="(window.location = '{{ route("admin.dashboard") }}' )" class="nav-link">
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li><li class="nav-item">
+                    <a onclick="(window.location = '{{ route("admin.contestants") }}' )" class="nav-link">
                         <span class="nav-text">Contestant Info</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../html/charts.html" class="nav-link">
+                    <a onclick="(window.location = '{{ route("admin.pending") }}' )" class="nav-link">
                         <span class="nav-text">Un-Reviewed Beats</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../html/genres.html" class="nav-link">
+                    <a onclick="(window.location = '{{ route("admin.reviewed") }}' )" class="nav-link">
                         <span class="nav-text">Reviewed Beats</span>
                     </a>
                 </li>
@@ -220,7 +224,7 @@
                     <div class="col-6 col-md-4">
                         <div class="mb-3">
                             <!-- brand -->
-                            <a href="index.html" class="navbar-brand text-white ">
+                            <a onclick="(window.location = '{{ route("main") }}' )" class="navbar-brand text-white ">
                                 <svg width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1" fill="#000"></circle>
                                     <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1"></circle>
@@ -235,84 +239,84 @@
                         </div>
                         <div class="px-1">
                             <div class="dropdown mt-5 ml-md-5">
-                                <button class="btn w-sm btn-dark text-align-auto b-a sorting" data-toggle="dropdown">English</button>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">English</a>
-                                    <a href="#" class="dropdown-item">Français</a>
-                                    <a href="#" class="dropdown-item">日本语</a>
-                                    <a href="#" class="dropdown-item">中文</a>
-                                </div>
+                                {{--                                <button class="btn w-sm btn-dark text-align-auto b-a sorting" data-toggle="dropdown">English</button>--}}
+                                {{--                                <div class="dropdown-menu">--}}
+                                {{--                                    <a href="#" class="dropdown-item">English</a>--}}
+                                {{--                                    <a href="#" class="dropdown-item">Français</a>--}}
+                                {{--                                    <a href="#" class="dropdown-item">日本语</a>--}}
+                                {{--                                    <a href="#" class="dropdown-item">中文</a>--}}
+                                {{--                                </div>--}}
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-2">
                         <h5 class="mb-3 text-muted">Pages</h5>
                         <ul class="list-unstyled l-h-2x text-highlight">
+                            {{--                            <li>--}}
+                            {{--                                <a href="../html/artists.html">Artists</a>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <a href="../html/charts.html">Top Charts</a>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <a href="../html/genres.html">Genres</a>--}}
+                            {{--                            </li>--}}
                             <li>
-                                <a href="../html/artists.html">Artists</a>
+                                <a href="#">About Us</a>
+                            </li>
+                            {{--                            <li>--}}
+                            {{--                                <a href="../html/blog.html">Blog</a>--}}
+                            {{--                            </li>--}}
+                            <li>
+                                <a onclick="(window.location = '{{ route("login") }}' )">Login</a>
                             </li>
                             <li>
-                                <a href="../html/charts.html">Top Charts</a>
-                            </li>
-                            <li>
-                                <a href="../html/genres.html">Genres</a>
-                            </li>
-                            <li>
-                                <a href="../html/page.about.html">About Us</a>
-                            </li>
-                            <li>
-                                <a href="../html/blog.html">Blog</a>
-                            </li>
-                            <li>
-                                <a href="../html/signin.html">Signin</a>
-                            </li>
-                            <li>
-                                <a href="../html/signup.html">Signup</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-md-2">
-                        <h5 class="mb-3 text-muted">Your HillCross</h5>
-                        <ul class="list-unstyled l-h-2x text-highlight">
-                            <li>
-                                <a href="../html/artist.detail.html">Profile</a>
-                            </li>
-                            <li>
-                                <a href="../html/artist.detail.html#albums">Albums</a>
-                            </li>
-                            <li>
-                                <a href="../html/artist.detail.html#tracks">Tracks</a>
-                            </li>
-                            <li>
-                                <a href="../html/artist.detail.html#playlist">Playlist</a>
-                            </li>
-                            <li>
-                                <a href="../html/artist.detail.html#liked">Liked</a>
-                            </li>
-                            <li>
-                                <a href="../html/artist.detail.html#following">Following</a>
+                                <a onclick="(window.location = '{{ route("instructions") }}' )">Signup</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-6 col-md-2">
-                        <h5 class="mb-3 text-muted">Help</h5>
-                        <ul class="list-unstyled l-h-2x text-highlight">
-                            <li>
-                                <a href="../docs">Documentation</a>
-                            </li>
-                            <li>
-                                <a href="../docs/changelog.html">Changelog</a>
-                            </li>
-                            <li>
-                                <a href="../docs/changelog.html">Update</a>
-                            </li>
-                        </ul>
+                        {{--                        <h5 class="mb-3 text-muted">Your HillCross</h5>--}}
+                        {{--                        <ul class="list-unstyled l-h-2x text-highlight">--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../html/artist.detail.html">Profile</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../html/artist.detail.html#albums">Albums</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../html/artist.detail.html#tracks">Tracks</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../html/artist.detail.html#playlist">Playlist</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../html/artist.detail.html#liked">Liked</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../html/artist.detail.html#following">Following</a>--}}
+                        {{--                            </li>--}}
+                        {{--                        </ul>--}}
+                    </div>
+                    <div class="col-6 col-md-2">
+                        {{--                        <h5 class="mb-3 text-muted">Help</h5>--}}
+                        {{--                        <ul class="list-unstyled l-h-2x text-highlight">--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../docs">Documentation</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../docs/changelog.html">Changelog</a>--}}
+                        {{--                            </li>--}}
+                        {{--                            <li>--}}
+                        {{--                                <a href="../docs/changelog.html">Update</a>--}}
+                        {{--                            </li>--}}
+                        {{--                        </ul>--}}
                     </div>
                     <div class="col-6 col-md-2 text-md-right">
                         <h5 class="mb-3 text-muted">Follow Us</h5>
-                        <a href="#">Fb</a>
-                        <a href="#">Tw</a>
-                        <a href="#">Ig</a>
+                        <a class="d-block" href="https://web.facebook.com/hillcrossrecords">Facebook</a>
+                        <a class="d-block" href="https://www.linkedin.com/company/hillcross-records/">Linkedin</a>
+                        <a class="d-block" href="https://www.instagram.com/hillcrossrecords/">Instagram</a>
                     </div>
                 </div>
                 <div class="text-center py-5">

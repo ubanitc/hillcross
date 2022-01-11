@@ -16,7 +16,7 @@
                     <p style="font-size: large;">Top Recording Studios, Mixing & Mastering
                         Engineers, Producers</p>
 
-                    <a href="html/discover.html" class="btn btn-md gd-primary text-white no-ajax m-2">Book a Session</a>
+{{--                    <a href="html/discover.html" class="btn btn-md gd-primary text-white no-ajax m-2">Book a Session</a>--}}
 
                     <!-- <a href="https://themeforest.net/user/flatfull/portfolio" class="btn btn-md btn-outline-light m-2">Purchase</a> -->
                 </div>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="py-4">
-                        <a href="html/artists.html" class="btn btn-md btn-outline-primary no-ajax m-2">Join Now</a>
+                        <a onclick="(window.location = '{{ route("instructions") }}' )" class="btn btn-md btn-outline-primary no-ajax m-2">Join Now</a>
 
                         <!-- <a href="https://themeforest.net/user/flatfull/portfolio" class="btn btn-md btn-outline-primary m-2">Purchase</a> -->
                     </div>

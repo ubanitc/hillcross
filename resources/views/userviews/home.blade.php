@@ -6,7 +6,7 @@
             <div class="padding sr">
                 <div class="page-hero" data-id="1" data-source="./assets/aleyi.mp3">
                     <div class="media bg-media">
-                        <div class="media-content" style="background-image:url(../assets/img/c0.jpg)"></div>
+                        <div class="media-content" style="background-image:url(assets/img/mike.jpg)"></div>
                     </div>
                     <div class="pos-rlt text-white">
                         <h1 class="display-3 font-weight-bold mb-0 text-white title">{{ ucwords(Auth::user()->name) }}</h1>
@@ -54,7 +54,7 @@
                             <div class="col-12" data-id="{{ $beat->data_id }}"  data-source="{{ $beat->path }}">
                                 <div class="list-item r">
                                     <div class="media ">
-                                        <a href="#{{ $beat->data_id }}" class="ajax media-content " style="background-image:url(../assets/img/c12.jpg)">
+                                        <a href="#{{ $beat->data_id }}" class="ajax media-content " style="background-image:url(assets/img/mike.jpg)">
                                         </a>
                                         <div class="media-action media-action-overlay">
                                             <button class="btn btn-icon no-bg no-shadow hide-row" data-toggle-class>
@@ -82,9 +82,11 @@
                                         <div class="d-flex align-items-center">
                                             <div class="px-3 text-sm text-muted d-none d-md-block">{{ $beat->status }}</div>
 {{--                                            <button href="{{ route('user.upload') }}" class="btn btn-icon no-bg no-shadow" data-toggle-class>--}}
+                                            @if($beat->status != 'Reviewed')
                                             <a href="#my" data-id="{{ $beat->data_id }}" class="delete-button" data-toggle="modal" >
                                                 <i data-feather="trash" class="active-primary"></i>
                                             </a>
+                                            @endif
 {{--                                            <div class="text-center">--}}
 {{--                                                <!-- Button HTML (to Trigger Modal) -->--}}
 {{--                                                <a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>--}}

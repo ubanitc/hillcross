@@ -33,11 +33,11 @@
                                                     <p href="blog.detail.html#" class="list-title title ajax h5 font-weight-bold">
                                                         No. of Contestants
                                                     </p>
-                                                    <p class="display-4">{{ number_format(10000) }}</p>
+                                                    <p class="display-4">{{ number_format($no_of_users) }}</p>
                                                 </div>
                                                 <div class="list-footer ">
                                                     <div class="">Last Sign-Up</div>
-                                                    <div class="text-muted text-sm">Feb 11, 3:39 am
+                                                    <div class="text-muted text-sm">{{ $time_user->created_at }}
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,12 +59,12 @@
 {{--                                                    <a href="artist.detail.html#" class="list-subtitle d-block text-muted h-1x subtitle ajax ">--}}
 {{--                                                        Pharetra, nisi semper enim pulvinar in gravida lectus et--}}
 {{--                                                    </a>--}}
-                                                    <p class="display-4">{{ number_format(10000) }}</p>
+                                                    <p class="display-4">{{ number_format($no_of_beats) }}</p>
 
                                                 </div>
                                                 <div class="list-footer ">
                                                     <div class="">Last Uploaded</div>
-                                                    <div class="text-muted text-sm">Feb 8, 3:34 am
+                                                    <div class="text-muted text-sm">{{ $time_beat->created_at }}
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,11 +85,11 @@
 {{--                                                    <a href="artist.detail.html#" class="list-subtitle d-block text-muted h-1x subtitle ajax ">--}}
 {{--                                                        Pharetra, nisi semper enim pulvinar in gravida lectus et--}}
 {{--                                                    </a>--}}
-                                                    <p class="display-4">{{ number_format(10000) }}</p>
+                                                    <p class="display-4">{{ number_format($un_reviewed) }}</p>
 
                                                 </div>
                                                 <div class="list-footer ">
-                                                    <a href="#" class="btn btn-block btn-default btn-outline-dark">View</a>
+                                                    <a onclick="(window.location = '{{ route("admin.pending") }}' )" class="btn btn-block btn-default btn-outline-dark">View</a>
 {{--                                                    <div class="text-muted text-sm">Feb 8, 3:34 am--}}
 {{--                                                    </div>--}}
                                                 </div>

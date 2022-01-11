@@ -24,7 +24,7 @@
                 <div class="d-flex flex align-items-center justify-content-center">
                 </div>
                 <div class="d-flex text-sm text-fade">
-                    <a href="index.html" class="text-white">About</a>
+                    <a href="#" class="text-white">About</a>
                     <span class="flex"></span>
                     <a href="#" class="text-white mx-1">Terms</a>
                     <a href="#" class="text-white mx-1">Policy</a>
