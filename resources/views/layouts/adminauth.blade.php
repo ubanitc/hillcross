@@ -270,9 +270,9 @@
                             <li>
                                 <a onclick="(window.location = '{{ route("login") }}' )">Login</a>
                             </li>
-                            <li>
-                                <a onclick="(window.location = '{{ route("instructions") }}' )">Signup</a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a onclick="(window.location = '{{ route("instructions") }}' )">Signup</a>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                     <div class="col-6 col-md-2">

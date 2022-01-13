@@ -24,31 +24,13 @@
             <div class="page-container px-5 pos-rlt">
                 <div class="py-5 text-center">
                     <h1 class="display-3 font-weight-bold text-white prod-text">Producer Quest</h1>
-                    <h5 class="mb-5">Quest Ends On: 19 July 2022</h5>
+                    <h5 class="mb-5">Registration Ends On: 19 Feb, 2022</h5>
                     <p class="quest-details" style="font-size: large;">The producer quest is an excercise to search for the next biggest producer in Africa. Join the challenge now to be part of the Quest.</p>
-                    <div class="timer-container">
-                        <div class="timer">
-				<span>
-					<span class="display-4 font-weight-bold">365</span>
-					<span>DAYS</span>
-				</span>
-                            <span>
-					<span class="display-4 font-weight-bold">12</span>
-					<span>HRS</span>
-				</span>
-                            <span>
-					<span class="display-4 font-weight-bold"> 29</span>
-					<span>MINS</span>
-				</span>
-                            <span>
-					<span class="display-4 font-weight-bold">40</span>
-					<span>SEC</span>
-				</span>
+                    <h3  id="demo">
 
-                        </div>
-                    </div>
-                    <div class="py-4">
-                        <a onclick="(window.location = '{{ route("instructions") }}' )" class="btn btn-md btn-outline-primary no-ajax m-2">Join Now</a>
+                    </h3>
+                    <div class="py-4 join-now">
+                        <a onclick="(window.location = '{{ route("instructions") }}' )" class=" btn btn-md btn-outline-primary no-ajax m-2">Join Now</a>
 
                         <!-- <a href="https://themeforest.net/user/flatfull/portfolio" class="btn btn-md btn-outline-primary m-2">Purchase</a> -->
                     </div>
@@ -90,3 +72,4 @@
     </div>
     <!-- ############ Content END-->
 @endsection
+
